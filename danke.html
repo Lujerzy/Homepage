@@ -3,18 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vielen Dank!</title>
-  <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+  <title>Danke für deine Nachricht</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f0fdf4;
+    }
+  </style>
 </head>
-<body class="bg-gray-50 flex items-center justify-center min-h-screen px-4">
-  <div class="bg-white p-8 rounded-xl shadow-lg max-w-xl text-center">
-    <h1 class="text-3xl font-bold text-primary-600 mb-4">Vielen Dank für deine Nachricht!</h1>
-    <p class="text-gray-700 text-lg mb-6">
-      Ich habe deine Angaben erhalten und melde mich in Kürze bei dir – egal ob es um ein Erstgespräch, dein Trainingsziel oder Fragen geht.
+<body class="min-h-screen flex items-center justify-center px-4">
+
+  <div class="bg-white border border-green-200 shadow-2xl rounded-2xl p-10 max-w-xl w-full text-center">
+    <div class="mb-6">
+      <svg class="w-16 h-16 mx-auto text-green-500" fill="none" stroke="currentColor" stroke-width="1.5"
+        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    </div>
+    <h1 class="text-3xl font-bold text-green-600 mb-4">Vielen Dank!</h1>
+    <p class="text-gray-700 text-lg">
+      Deine Nachricht wurde erfolgreich übermittelt.<br>
+      Ich melde mich so schnell wie möglich bei dir – ob Fitness-Fragebogen oder Kontaktanfrage.
     </p>
-    <a href="index.html" class="inline-block mt-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-lg transition">
+    <a href="index.html"
+      class="mt-8 inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition">
       Zurück zur Startseite
     </a>
   </div>
+
 </body>
 </html>
