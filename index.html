@@ -797,30 +797,6 @@
         const fitnessForm = document.getElementById('fitness-form');
         const contactForm = document.getElementById('contact-form');
         
-        if (fitnessForm) {
-            fitnessForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Sammle Formulardaten
-                const formData = new FormData(fitnessForm);
-                let emailBody = "Neuer Fitness-Fragebogen:\n\n";
-                
-                for (let [key, value] of formData.entries()) {
-                    if (key === "goals" && Array.isArray(value)) {
-                        emailBody += `${key}: ${value.join(", ")}\n`;
-                    } else {
-                        emailBody += `${key}: ${value}\n`;
-                    }
-                }
-                
-                // Sende E-Mail (simuliert)
-                console.log("E-Mail an lukas.jaskolka@gmail.com gesendet:", emailBody);
-                
-                alert('Vielen Dank für das Ausfüllen des Fragebogens! Ich werde mich in Kürze bei dir melden.');
-                fitnessForm.reset();
-            });
-        }
-        
         if (contactForm) {
             contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
