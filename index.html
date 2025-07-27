@@ -868,6 +868,16 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+    <!-- Tawk.to Button höher setzen -->
+    <script>
+  Tawk_API = Tawk_API || {};
+  Tawk_API.onLoad = function () {
+    var iframe = document.querySelector("iframe[src*='tawk.to']");
+    if (iframe) {
+      iframe.style.bottom = "100px"; // Abstand nach unten
+    }
+  };
+</script>
     <!-- Cookie-Banner -->
 <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-black text-white px-6 py-4 z-50 flex flex-col md:flex-row justify-between items-center gap-4">
   <p class="text-sm">Diese Website verwendet Cookies, um dir das bestmögliche Erlebnis zu bieten.</p>
