@@ -908,5 +908,17 @@ s0.parentNode.insertBefore(s1,s0);
   <p class="text-sm">Diese Website verwendet Cookies, um dir das bestmögliche Erlebnis zu bieten.</p>
   <button id="accept-cookies" class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded text-sm transition">OK</button>
 </div>
+    <script>
+  // Cookie-Zustimmung prüfen
+  if (!localStorage.getItem('cookiesAccepted')) {
+    document.getElementById('cookie-banner').classList.add('show');
+  }
+
+  // Zustimmung speichern
+  document.getElementById('accept-cookies').addEventListener('click', function () {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookie-banner').classList.remove('show');
+  });
+</script>
 </body>
 </html>
