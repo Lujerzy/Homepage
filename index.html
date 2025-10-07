@@ -878,7 +878,7 @@ s0.parentNode.insertBefore(s1,s0);
     }
   };
 </script>
- <!-- Cookie-Banner -->
+<!-- Cookie-Banner -->
 <div id="cookie-banner"
      class="hidden fixed bottom-0 left-0 right-0 bg-black text-white px-6 py-4 z-50 flex flex-col md:flex-row justify-between items-center gap-4">
   <p class="text-sm">Diese Website verwendet Cookies, um dir das bestmögliche Erlebnis zu bieten.</p>
@@ -888,20 +888,34 @@ s0.parentNode.insertBefore(s1,s0);
 </div>
 
 <script>
-  const banner = document.getElementById('cookie-banner');
-  const acceptBtn = document.getElementById('accept-cookies');
+  document.addEventListener('DOMContentLoaded', function () {
+    try {
+      const banner = document.getElementById('cookie-banner');
+      const acceptBtn = document.getElementById('accept-cookies');
 
-  // Bereits akzeptiert? -> Banner gar nicht erst zeigen
-  if (localStorage.getItem('cookiesAccepted') === 'true') {
-    banner.remove();
-  } else {
-    banner.classList.remove('hidden');
-  }
+      if (!banner || !acceptBtn) return; // wenn HTML nicht vorhanden ist, still raus
 
-  // Klick auf OK
-  acceptBtn.addEventListener('click', () => {
-    localStorage.setItem('cookiesAccepted', 'true');
-    banner.remove(); // alternativ: banner.classList.add('hidden');
+      if (localStorage.getItem('cookiesAccepted') === 'true') {
+        banner.remove(); // schon akzeptiert -> gar nicht erst anzeigen
+      } else {
+        banner.classList.remove('hidden'); // anzeigen
+      }
+
+      acceptBtn.addEventListener('click', function () {
+        try {
+          localStorage.setItem('cookiesAccepted', 'true');
+        } catch (e) {
+          // falls localStorage geblockt ist, ignorieren wir einfach
+        }
+        // Banner aus dem DOM nehmen
+        if (banner && banner.parentNode) banner.parentNode.removeChild(banner);
+      });
+    } catch (err) {
+      // letzter Fallback: wenn irgendwas knallt, dann wenigstens Banner verstecken
+      const b = document.getElementById('cookie-banner');
+      if (b) b.classList.add('hidden');
+      // Optional: console.error(err);
+    }
   });
 </script>
 </body>
